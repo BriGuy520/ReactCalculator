@@ -4,7 +4,7 @@ import React from 'react';
 function IODisplay({currentValue}){
 
   return (
-    <div>
+    <div class="output-container">
       <input value={currentValue} />
     </div>
   )

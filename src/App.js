@@ -38,8 +38,6 @@ function App() {
         answer = doArithmetic(operation, prevValue, currentValue);
         setCurrent(answer);
       }
-
-
   }
 
   const selectedDigit = (e) => {
@@ -59,10 +57,14 @@ function App() {
   return (
     <div>
       <h1>Calculator</h1>
-      <IODisplay currentValue={currentValue} />
-      <Features selectedFeature={selectedFeature} />
-      <Arithmetic selectedOperation={selectedOperation} />
-      <Numbers selectedNumber={selectedDigit} />
+      <div className="calculatorContainer">
+        <IODisplay currentValue={currentValue} />
+        <Features selectedFeature={selectedFeature} />
+        <div style={{'display': 'flex', 'flexDirection': 'ro'}}>
+          <Arithmetic selectedOperation={selectedOperation} />
+          <Numbers selectedNumber={selectedDigit} />
+      </div>
+      </div>
     </div>
   );
 }

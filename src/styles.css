@@ -1,6 +1,17 @@
+.calculatorContainer {
+  width: 300px;
+}
+
 .numbers-container {
   display: grid;
-  grid-template-columns: 30px 30px 30px;
+  grid-template: 33% 33% / 33% auto 33%;
+
+}
+
+.output-container input {
+  width: 100%;
+  height: 30px;
+  font-size: 34px;
 }
 
 .arithmetic-container {
