@@ -59,10 +59,13 @@ function App() {
       <h1>Calculator</h1>
       <div className="calculatorContainer">
         <IODisplay currentValue={currentValue} />
-        <Features selectedFeature={selectedFeature} />
+        <div className="features">
+          <Features selectedFeature={selectedFeature} />
+        </div>
         <div style={{'display': 'flex', 'flexDirection': 'ro'}}>
-          <Arithmetic selectedOperation={selectedOperation} />
+         
           <Numbers selectedNumber={selectedDigit} />
+          <Arithmetic selectedOperation={selectedOperation} />
       </div>
       </div>
     </div>
