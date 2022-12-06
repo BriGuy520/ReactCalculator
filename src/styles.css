@@ -16,6 +16,4 @@
 
 .arithmetic-container {
   display: grid;
-  grid-auto-flow: row;
-  grid-column-start: 5;
 }

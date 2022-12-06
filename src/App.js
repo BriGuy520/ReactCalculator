@@ -51,6 +51,11 @@ function App() {
     if(value === 'C'){
       setCurrent('');
     }
+
+    if(value === '+/-'){
+      const negativePositive = currentValue > 0 ? '-'.concat(currentValue) : currentValue.replace('-', '');
+      setCurrent(negativePositive);
+    }
   }
 
 
@@ -59,11 +64,10 @@ function App() {
       <h1>Calculator</h1>
       <div className="calculatorContainer">
         <IODisplay currentValue={currentValue} />
-        <div className="features">
-          <Features selectedFeature={selectedFeature} />
-        </div>
-        <div style={{'display': 'flex', 'flexDirection': 'ro'}}>
-         
+          <div className="features">
+            <Features selectedFeature={selectedFeature} />
+          </div>
+        <div style={{'display': 'flex'}}>
           <Numbers selectedNumber={selectedDigit} />
           <Arithmetic selectedOperation={selectedOperation} />
       </div>
