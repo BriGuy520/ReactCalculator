@@ -4,7 +4,7 @@
 
 .numbers-container {
   display: grid;
-  grid-template: 33% 33% / 33% auto 33%;
+  grid-template: 20% 20% 20% / 33% 33% 33%;
 
 }
 
