@@ -4,16 +4,21 @@
 
 .numbers-container {
   display: grid;
-  grid-template: 20% 20% 20% / 33% 33% 33%;
+  grid-template: 25% 25% 25% / 33% 33% 33%;
 
 }
 
-.output-container input {
-  width: 100%;
+.screen {
+  width: 190px;
   height: 30px;
-  font-size: 34px;
+  font-size: 32px;
+  border: 2px solid #000;
+  padding: 2px 1px 4px 1px;
+  text-align: right;
 }
 
 .arithmetic-container {
   display: grid;
+  grid-template-rows: 50px;
+  margin-top: -51px;
 }

@@ -8,7 +8,14 @@ function Arithmetic({selectedOperation}){
   return (
     <div className="arithmetic-container">
       {symbols.map(symbol => {
-        return <Button key={symbol} classes={'arithmetic'} inputValue={symbol} selectedOperation={selectedOperation} />  
+        return (
+          <Button 
+            key={symbol} 
+            classes={'arithmetic'} 
+            inputValue={symbol} 
+            selectedOperation={selectedOperation} 
+          /> 
+        ); 
       })}
     </div>
   );
