@@ -6,7 +6,7 @@ export default function Button({classes, inputValue, selectedNumber, selectedOpe
   const styleDefinitions = {
     'backgroundColor': inputValue === "=" ? 'orange' : 'grey',
     'color': '#fff',
-    'width': '50px',
+    'width': inputValue === '0' ? '100px' : '50px',
     'height': '50px',
   }
 

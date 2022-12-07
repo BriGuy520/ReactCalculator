@@ -1,15 +1,15 @@
 .calculatorContainer {
-  width: 190px;
+  width: 195;
 }
 
 .numbers-container {
   display: grid;
-  grid-template: 25% 25% 25% / 33% 33% 33%;
+  grid-template: 25% 25% 25% / 20% 20% 33%;
 
 }
 
 .screen {
-  width: 190px;
+  width: 195px;
   height: 30px;
   font-size: 32px;
   border: 2px solid #000;
@@ -17,8 +17,13 @@
   text-align: right;
 }
 
+.decimal {
+  margin-left: 50px;
+}
+
 .arithmetic-container {
   display: grid;
   grid-template-rows: 50px;
-  margin-top: -51px;
+  margin-top: -50px;
+  margin-left: -100px;
 }

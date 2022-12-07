@@ -17,6 +17,8 @@ const Numbers = ({selectedNumber}) => {
           />
         ) 
       })}
+
+      <Button classes={'decimal'} inputValue={'.'} /> 
     </div>
   )
 }
