@@ -12,7 +12,12 @@ export default function Button({classes, inputValue, selectedNumber, selectedOpe
 
   return (
     <>
-      <button value={inputValue} className={classes} style={{...styleDefinitions}} onClick={classes === 'number' ? selectedNumber : classes === 'arithmetic' ? selectedOperation : selectedFeature}>
+      <button 
+        value={inputValue} 
+        className={classes} 
+        style={{...styleDefinitions}} 
+        onClick={classes === 'number' || classes === 'decimal' ? selectedNumber : classes === 'arithmetic' ? selectedOperation : selectedFeature}
+      >
         {inputValue}
       </button>
     </>

@@ -11,18 +11,21 @@ function App() {
   const [prevValue, setPrevValue] = React.useState('');
   const [operation, setOperation] = React.useState('');
 
+  const valueDisplayed = React.useRef(currentValue);
+
+
   let answer = 0;
 
   function doArithmetic(oper, pv, cv){
 
     if(oper === '+'){
-      return (parseInt(pv) + parseInt(cv)).toString();
+      return (parseFloat(pv) + parseFloat(cv)).toString();
     } else if(oper === '-'){
-      return (parseInt(pv) - parseInt(cv)).toString();
+      return (parseFloat(pv) - parseFloat(cv)).toString();
     } else if(oper === 'X'){
-      return (parseInt(pv) * parseInt(cv)).toString();
+      return (parseFloat(pv) * parseFloat(cv)).toString();
     } else if(oper === '/'){
-      return (parseInt(pv) / parseInt(cv)).toString();
+      return (parseFloat(pv) / parseFloat(cv)).toString();
     }
   }
 
@@ -32,6 +35,7 @@ function App() {
 
       setPrevValue(currentValue);
       setOperation(value);
+      valueDisplayed.current = currentValue;
       setCurrent('');
 
       if(value === '='){
@@ -50,6 +54,7 @@ function App() {
 
     if(value === 'C'){
       setCurrent('');
+      setPrevValue('');
     }
 
     if(value === '+/-'){
@@ -63,7 +68,7 @@ function App() {
     <div>
       <h1>Calculator</h1>
       <div className="calculatorContainer">
-        <IODisplay currentValue={currentValue} />
+        <IODisplay currentValue={currentValue === '' && prevValue ? prevValue : currentValue} />
           <div className="features">
             <Features selectedFeature={selectedFeature} />
           </div>
