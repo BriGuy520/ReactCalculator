@@ -48,10 +48,14 @@ function App() {
         
     if(operation === '='){
       setOperation('');
-      return setCurrent(e.target.value);
+      return setCurrent(value);
     }
 
-    setCurrent(currentValue.concat(e.target.value));
+    setCurrent(value === '.' && decimalRef.current ? currentValue : currentValue.concat(value));
+
+    if(value === '.'){
+      decimalRef.current = true;
+    }
   }
 
   const selectedFeature = (e) => {
