@@ -30,6 +30,7 @@ function App() {
 
   const selectedOperation = (e) => {
 
+      decimalRef.current = false;
       const {value} = e.target;
 
       setPrevValue(currentValue);
