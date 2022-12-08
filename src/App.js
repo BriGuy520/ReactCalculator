@@ -11,6 +11,7 @@ function App() {
   const [prevValue, setPrevValue] = React.useState('');
   const [operation, setOperation] = React.useState('');
 
+  const decimalRef = React.useRef(false);
 
   let answer = 0;
 
@@ -43,10 +44,11 @@ function App() {
 
   const selectedDigit = (e) => {
 
+    const {value} = e.target;
+        
     if(operation === '='){
       setOperation('');
       return setCurrent(e.target.value);
-
     }
 
     setCurrent(currentValue.concat(e.target.value));
@@ -63,6 +65,10 @@ function App() {
     if(value === '+/-'){
       const negativePositive = currentValue > 0 ? '-'.concat(currentValue) : currentValue.replace('-', '');
       setCurrent(negativePositive);
+    }
+
+    if(value === '%'){
+      setCurrent((parseFloat(currentValue) / 100).toString());
     }
   }
 
