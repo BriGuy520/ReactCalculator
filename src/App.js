@@ -11,8 +11,6 @@ function App() {
   const [prevValue, setPrevValue] = React.useState('');
   const [operation, setOperation] = React.useState('');
 
-  const valueDisplayed = React.useRef(currentValue);
-
 
   let answer = 0;
 
@@ -35,7 +33,6 @@ function App() {
 
       setPrevValue(currentValue);
       setOperation(value);
-      valueDisplayed.current = currentValue;
       setCurrent('');
 
       if(value === '='){
@@ -45,6 +42,12 @@ function App() {
   }
 
   const selectedDigit = (e) => {
+
+    if(operation === '='){
+      setOperation('');
+      return setCurrent(e.target.value);
+
+    }
 
     setCurrent(currentValue.concat(e.target.value));
   }
