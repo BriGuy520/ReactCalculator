@@ -18,13 +18,31 @@ function App() {
   function doArithmetic(oper, pv, cv){
 
     if(oper === '+'){
-      return (parseFloat(pv) + parseFloat(cv)).toString();
+      
+      let addition =  (parseFloat(pv) + parseFloat(cv)).toString();
+
+      console.log(addition.length);
+
+      return addition.length > 12 ? parseFloat(addition).toPrecision(11).toString() : addition;
+
     } else if(oper === '-'){
-      return (parseFloat(pv) - parseFloat(cv)).toString();
+
+      let substraction = (parseFloat(pv) - parseFloat(cv)).toString();
+
+      return substraction.length > 12 ? parseFloat(substraction).toPrecision(11).toString() : substraction;
+
     } else if(oper === 'X'){
-      return (parseFloat(pv) * parseFloat(cv)).toString();
+
+      let multiplication = (parseFloat(pv) * parseFloat(cv)).toString();
+
+      return multiplication.length > 12 ? parseFloat(multiplication).toPrecision(11).toString() : multiplication;
+
     } else if(oper === '/'){
-      return (parseFloat(pv) / parseFloat(cv)).toString();
+
+      let division = (parseFloat(pv) / parseFloat(cv)).toString();
+
+      return division.length > 12 ? parseFloat(division).toPrecision(11).toString() : division;
+
     }
   }
 
