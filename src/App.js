@@ -83,6 +83,7 @@ function App() {
     if(value === 'C'){
       setCurrent('');
       setPrevValue('');
+      decimalRef.current = false;
     }
 
     if(value === '+/-'){
