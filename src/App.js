@@ -21,8 +21,6 @@ function App() {
       
       let addition =  (parseFloat(pv) + parseFloat(cv)).toString();
 
-      console.log(addition.length);
-
       return addition.length > 12 ? parseFloat(addition).toPrecision(11).toString() : addition;
 
     } else if(oper === '-'){
@@ -100,6 +98,7 @@ function App() {
   return (
     <div>
       <h1>Calculator</h1>
+      <p>Built with React Hooks</p>
       <div className="calculatorContainer">
         <IODisplay currentValue={currentValue === '' && prevValue ? prevValue : currentValue} />
           <div className="features">
