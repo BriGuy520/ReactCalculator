@@ -13,13 +13,13 @@ function App() {
 
   const decimalRef = React.useRef(false);
 
-  let answer = 0;
+  let total = 0;
 
   function doArithmetic(oper, pv, cv){
 
     if(oper === '+'){
       
-      let addition =  (parseFloat(pv) + parseFloat(cv)).toString();
+      let addition = (parseFloat(pv) + parseFloat(cv)).toString();
 
       return addition.length > 12 ? parseFloat(addition).toPrecision(11).toString() : addition;
 
@@ -52,10 +52,12 @@ function App() {
       setPrevValue(currentValue);
       setOperation(value);
       setCurrent('');
+      
+      if(prevValue){
 
-      if(value === '='){
-        answer = doArithmetic(operation, prevValue, currentValue);
-        setCurrent(answer);
+        total = doArithmetic(operation, prevValue, currentValue);
+        setCurrent(total);
+
       }
   }
 
@@ -68,7 +70,9 @@ function App() {
       return setCurrent(value);
     }
 
-    setCurrent(value === '.' && decimalRef.current ? currentValue : currentValue.concat(value));
+    const checkDecimal = value === '.' && decimalRef.current ? currentValue : currentValue.concat(value);
+
+    setCurrent(checkDecimal);
 
     if(value === '.'){
       decimalRef.current = true;
