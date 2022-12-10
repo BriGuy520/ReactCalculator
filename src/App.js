@@ -25,9 +25,9 @@ function App() {
 
     } else if(oper === '-'){
 
-      let substraction = (parseFloat(pv) - parseFloat(cv)).toString();
+      let subtraction = (parseFloat(pv) - parseFloat(cv)).toString();
 
-      return substraction.length > 12 ? parseFloat(substraction).toPrecision(11).toString() : substraction;
+      return subtraction.length > 12 ? parseFloat(subtraction).toPrecision(11).toString() : subtraction;
 
     } else if(oper === 'X'){
 
