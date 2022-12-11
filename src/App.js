@@ -59,16 +59,14 @@ function App() {
 
         total = doArithmetic(operation, prevValue, currentValue);
         setCurrent(total);
-
+        setPrevValue('');
       }
   }
 
   React.useEffect(() => {
     console.log(`useEffect cv: ${currentValue} pv: ${prevValue} oper: ${operation}`);
-
-    if(currentValue && prevValue && operation === "="){
-      setCurrent(current => current);
-    }
+    
+    
 
   }, [currentValue, prevValue, operation]);
 
@@ -82,17 +80,29 @@ function App() {
       setOperation('');
       return setCurrent(value);
     } 
+   
+    const checkDecimal = value === '.' && decimalRef.current ? currentValue : currentValue.concat(value);
 
-    if(currentValue && prevValue){
-      setPrevValue(currentValue);
-      setCurrent(value);
-    } else {
-
-      const checkDecimal = value === '.' && decimalRef.current ? currentValue : currentValue.concat(value);
-  
+    if(!currentValue && !prevValue && !operation){
       setCurrent(checkDecimal);
     }
 
+    if(currentValue && !prevValue && !operation){
+      setCurrent(checkDecimal);
+    }
+
+    if(!currentValue && prevValue && operation){
+      setCurrent(checkDecimal);
+    }
+
+    if(currentValue && prevValue && operation){
+      setCurrent(checkDecimal);
+    }
+
+    if(currentValue && !prevValue && operation){
+      setPrevValue(currentValue);
+      setCurrent(value);
+    }
 
     if(value === '.'){
       decimalRef.current = true;
@@ -105,6 +115,7 @@ function App() {
     if(value === 'C'){
       setCurrent('');
       setPrevValue('');
+      setOperation('');
       decimalRef.current = false;
     }
 
