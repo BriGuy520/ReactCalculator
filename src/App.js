@@ -52,6 +52,8 @@ function App() {
       setPrevValue(currentValue);
       setOperation(value);
       setCurrent('');
+
+      console.log("selectedOperation: " + " cv: " + currentValue + " pr: " + prevValue + " operation: " + operation);
       
       if(prevValue){
 
@@ -61,18 +63,36 @@ function App() {
       }
   }
 
+  React.useEffect(() => {
+    console.log(`useEffect cv: ${currentValue} pv: ${prevValue} oper: ${operation}`);
+
+    if(currentValue && prevValue && operation === "="){
+      setCurrent(current => current);
+    }
+
+  }, [currentValue, prevValue, operation]);
+
   const selectedDigit = (e) => {
 
     const {value} = e.target;
+
+    console.log(`selectDigit cv: ${currentValue} pv: ${prevValue} oper: ${operation}`);
         
     if(operation === '='){
       setOperation('');
       return setCurrent(value);
+    } 
+
+    if(currentValue && prevValue){
+      setPrevValue(currentValue);
+      setCurrent(value);
+    } else {
+
+      const checkDecimal = value === '.' && decimalRef.current ? currentValue : currentValue.concat(value);
+  
+      setCurrent(checkDecimal);
     }
 
-    const checkDecimal = value === '.' && decimalRef.current ? currentValue : currentValue.concat(value);
-
-    setCurrent(checkDecimal);
 
     if(value === '.'){
       decimalRef.current = true;
