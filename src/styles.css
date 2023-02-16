@@ -4,7 +4,7 @@ body {
 }
 
 .calculatorContainer {
-  width: 195;
+  width: 195px;
 }
 
 .numbers-container {
@@ -17,7 +17,8 @@ body {
   width: 195px;
   height: 30px;
   font-size: 32px;
-  border: 2px solid #000;
+  border: 2px solid #ccc;
+  border-radius: 5px;
   padding: 2px 0px 4px 1px;
   text-align: right;
 }

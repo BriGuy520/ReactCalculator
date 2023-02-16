@@ -63,13 +63,6 @@ function App() {
       }
   }
 
-  React.useEffect(() => {
-    console.log(`useEffect cv: ${currentValue} pv: ${prevValue} oper: ${operation}`);
-    
-    
-
-  }, [currentValue, prevValue, operation]);
-
   const selectedDigit = (e) => {
 
     const {value} = e.target;

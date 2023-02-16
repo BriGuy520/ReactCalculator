@@ -4,10 +4,12 @@ export default function Button({classes, inputValue, selectedNumber, selectedOpe
 
 
   const styleDefinitions = {
-    'backgroundColor': inputValue === "=" ? 'orange' : 'grey',
-    'color': '#fff',
+    'backgroundColor': inputValue === "=" ? 'orange' : '#f1f1f1',
+    'color': '#000',
     'width': inputValue === '0' ? '100px' : '50px',
     'height': '50px',
+    'borderRadius': '8px',
+
   }
 
   return (
